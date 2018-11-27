@@ -410,13 +410,26 @@ function initMap() {
 
   <section class="">
       <!-- .wrap = container (width: 90%) -->
-      <div class="wrap size-50 aligncenter">
-        <div class="bg-white shadow">
-          <h2>Service worker acts like a proxy</h2>
-          <img src="./static/images/scope.PNG" alt="Service worker acts like a proxy">
-          <br>
-          <p class="text-intro">It can see all the requests made by the web page or PWA</p>
-        </div>
+      <div class="wrap size-90 aligncenter">
+          <div class="grid vertical-align">
+              <div class="column">  
+                <h2>Service worker acts like a proxy</h2>
+                <p class="text-intro">It can see all the requests made by the web page or PWA</p>
+                <img src="./static/images/scope.PNG" style="width: 90%" alt="Service worker acts like a proxy">
+                <br>
+                
+              </div>  
+              <div class="column">
+                <h2>Important Things</h2>
+                  <ul class="flexblock reasons">
+                      <li class="text-intro">Don't rely on global variables</li>
+                      <li class="text-intro">More than one instance might be in memory</li>
+                      <li class="text-intro">No events available for running status changes</li>
+                      <li class="text-intro">Don't block thread or you'll be terminated</li>
+                      <li class="text-intro">Store state in IndexedDB or cache storage</li>
+                    </ul>
+              </div>
+          </div>
         <!-- .end .bg-white shadow -->
       </div>
       <!-- .end .wrap -->
@@ -430,13 +443,13 @@ function initMap() {
           <div class="column">    
               <div>
                 <h2>Offline Web</h2>
-                <p class="text-intro">A service worker can make a website / web app available offline.</p>
                 <ul class="flexblock reasons">
-                    <li class="text-intro"><p>Goto <a href="https://code.nasa.gov/">https://code.nasa.gov/</a></p></li>
-                    <li class="text-intro"></li>
-                    <li class="text-intro"></li>
-                    <li class="text-intro"></li>
-                    <li class="text-intro"></li>
+                    <li class="text-intro">Goto chrome://serviceworker-internals</li>
+                    <li class="text-intro"><p>On another tab, goto <a href="https://code.nasa.gov/">https://code.nasa.gov/</a></p></li>
+                    <li class="text-intro">Close tab, then Turn off wifi</li>
+                    <li class="text-intro">Verify internet not working, then reopen code.nasa.gov</li>
+                    <li class="text-intro">Try making up a path like code.nasa.gov/anything</li>
+                    <li class="text-intro">Close tab again, and wait for Running Status to change from RUNNING to STOPPED</li>
                   </ul>
                 
               </div>
@@ -470,7 +483,6 @@ function initMap() {
         </div>
         <!-- .end .wrap -->
     </section>  
-    
 
 
 
