@@ -363,12 +363,51 @@ function initMap() {
             </div>
           </div>
 
-
-            
             <!-- .end .bg-white shadow -->
           </div>
           <!-- .end .wrap -->
         </section>
+
+    <section class="">
+        <!-- .wrap = container (width: 90%) -->
+        <div class="wrap size-50 aligncenter">
+                <h2>Service worker acts like a proxy</h2>
+                <img src="./static/images/scope.PNG" style="width:517px " alt="Service worker acts like a proxy">
+                <p class="text-intro">It can see all the requests made by the web page or PWA</p>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+    </section>
+
+    <section class="bg-apple">
+        <!-- .wrap = container (width: 90%) -->
+        <div class="wrap size-90 aligncenter">
+          <div class="grid vertical-align">
+            <div class="column">    
+                <div>
+                  <h2>Offline Web</h2>
+                  <ul class="flexblock reasons">
+                      <li class="text-intro">Goto chrome://serviceworker-internals<br><small>or about:debugging#workers on Firefox</small></li>
+                      <li class="text-intro"><p>On another tab, goto <a href="https://code.nasa.gov/">https://code.nasa.gov/</a></p></li>
+                      <li class="text-intro">Close tab, then Turn off wifi</li>
+                      <li class="text-intro">Verify internet not working, then reopen code.nasa.gov</li>
+                      <li class="text-intro">Try making up a path like code.nasa.gov/anything</li>
+                      <li class="text-intro">Close tab again, and wait for Running Status to change from RUNNING to STOPPED</li>
+                    </ul>
+                  
+                </div>
+            </div>
+            <div class="column">            
+                <h2>Service worker lifecycle</h2>
+                <img src="./static/images/lifecycle.PNG" alt="Service worker lifecycle">
+            </div>                
+          </div>
+        </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
 
         <section class="">
             <!-- .wrap = container (width: 90%) -->
@@ -407,63 +446,7 @@ function initMap() {
             <!-- .end .wrap -->
           </section>
 
-
-  <section class="">
-      <!-- .wrap = container (width: 90%) -->
-      <div class="wrap size-90 aligncenter">
-          <div class="grid vertical-align">
-              <div class="column">  
-                <h2>Service worker acts like a proxy</h2>
-                <p class="text-intro">It can see all the requests made by the web page or PWA</p>
-                <img src="./static/images/scope.PNG" style="width: 90%" alt="Service worker acts like a proxy">
-                <br>
-                
-              </div>  
-              <div class="column">
-                <h2>Important Things</h2>
-                  <ul class="flexblock reasons">
-                      <li class="text-intro">Don't rely on global variables</li>
-                      <li class="text-intro">More than one instance might be in memory</li>
-                      <li class="text-intro">No events available for running status changes</li>
-                      <li class="text-intro">Don't block thread or you'll be terminated</li>
-                      <li class="text-intro">Store state in IndexedDB or cache storage</li>
-                    </ul>
-              </div>
-          </div>
-        <!-- .end .bg-white shadow -->
-      </div>
-      <!-- .end .wrap -->
-  </section>
-    
-
-  <section class="bg-apple">
-      <!-- .wrap = container (width: 90%) -->
-      <div class="wrap size-90 aligncenter">
-        <div class="grid vertical-align">
-          <div class="column">    
-              <div>
-                <h2>Offline Web</h2>
-                <ul class="flexblock reasons">
-                    <li class="text-intro">Goto chrome://serviceworker-internals</li>
-                    <li class="text-intro"><p>On another tab, goto <a href="https://code.nasa.gov/">https://code.nasa.gov/</a></p></li>
-                    <li class="text-intro">Close tab, then Turn off wifi</li>
-                    <li class="text-intro">Verify internet not working, then reopen code.nasa.gov</li>
-                    <li class="text-intro">Try making up a path like code.nasa.gov/anything</li>
-                    <li class="text-intro">Close tab again, and wait for Running Status to change from RUNNING to STOPPED</li>
-                  </ul>
-                
-              </div>
-          </div>
-          <div class="column">            
-              <h2>Service worker lifecycle</h2>
-              <img src="./static/images/lifecycle.PNG" alt="Service worker lifecycle">
-          </div>                
-        </div>
-      </div>
-        <!-- .end .bg-white shadow -->
-      </div>
-      <!-- .end .wrap -->
-    </section>
+  
 
     <section class="">
         <!-- .wrap = container (width: 90%) -->
@@ -484,10 +467,68 @@ function initMap() {
         <!-- .end .wrap -->
     </section>  
 
+    <section class="bg-apple">
+        <!-- .wrap = container (width: 90%) -->
+        <div class="wrap size-50 aligncenter">
+          <h3>1) Create index.html</h3>
+          <div class="bg-white shadow">
+<pre><code><h5>&lt;h1>Service Worker Test&lt;/h1>
+&lt;p>&lt;/p>
+&lt;script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+      .register("serviceworker.js")
+      .then(registration => {
+        document.querySelector("p").textContent =
+          "Service Worker registered properly";
+      })
+      .catch(error => {
+        document.querySelector("p").textContent =
+          "Service Worker NOT registered";
+      });
+  } else {
+    document.querySelector("p").textContent =
+      "Service Worker NOT available";
+  }
+&lt;/script>
+</h5></code></pre>
+          </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>          
 
+      <section class="bg-apple">
+          <!-- .wrap = container (width: 90%) -->
+          <div class="wrap size-50 aligncenter">
+            <h3>2) Create serviceworker.js (in same folder as index.html)</h3>
+            <div class="bg-white shadow">
+<pre><code><h5>
+console.log('We are a service worker');
 
+// listen to events via self
+self.addEventListener('install', (event) => {
+  console.log('Install event just happened');
+});
 
+self.addEventListener('activate', (event) => {
+  console.log('Activate event just happened');
+}); 
+  </h5></code></pre>
+            </div>
+            <!-- .end .bg-white shadow -->
+          </div>
+          <!-- .end .wrap -->
+        </section>          
 
+        <section class="bg-apple">
+            <!-- .wrap = container (width: 90%) -->
+            <div class="wrap size-50 aligncenter">
+              <h3>3) Launch index.html in a local server</h3>
+              <!-- .end .bg-white shadow -->
+            </div>
+            <!-- .end .wrap -->
+          </section>         
 
 
 
