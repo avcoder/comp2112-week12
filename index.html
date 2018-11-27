@@ -246,12 +246,205 @@
                   <h2>Build a PWA using VueCLI</h2>
                   <p>Let's build a simple progressive web app using VueCLI</p>
                 </li>
+                <li>
+                  <h2>Work period for Assignment 2 or Presentation</h2>
+                </li>
               </ul>
             </div>
             <!-- .end .bg-white shadow -->
           </div>
           <!-- .end .wrap -->
         </section>
+
+      <section class="bg-apple">
+          <!-- .wrap = container (width: 90%) -->
+          <div class="wrap size-70 aligncenter">
+            <h2>geolocation API</h2>
+<pre><code><h4>
+navigator.geolocation.getCurrentPosition(function(position) {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
+</h4></code></pre>            
+            <!-- .end .bg-white shadow -->
+          </div>
+          <!-- .end .wrap -->
+      </section>        
+
+        <section class="">
+            <!-- .wrap = container (width: 90%) -->
+            <div class="wrap size-50 aligncenter">
+              <h2><a href="https://goomap-jkbltftcjn.now.sh/phone">https://goomap-jkbltftcjn.now.sh/phone</a></h2>
+              
+              <div class="bg-white shadow">
+<pre><code><h5>
+function initMap() {
+  // The location of Uluru
+  navigator.geolocation.watchPosition(function(position) {
+    here = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    console.log(here);
+    // The map, centered at Uluru
+    var map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 20,
+      center: here
+    });
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({ position: here, map: map });
+  });
+}
+</h5></code></pre>
+              </div>
+              <!-- .end .bg-white shadow -->
+            </div>
+            <!-- .end .wrap -->
+          </section>        
+        
+        <section class="bg-primary">
+          <!-- .wrap = container (width: 90%) -->
+          <div class="wrap">
+            <div class="grid vertical-align">
+              <div class="column bg-purple">
+                  <h2><strong>Modern Use Cases:</strong></h2>
+                  <br />
+                  <div>
+                    <ul class="flexblock specs">
+                      <li class="text-intro">Offline</li>
+                      <li class="text-intro">Slow connection (want faster experience)</li>
+                      <li class="text-intro">Unreliable connection</li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="column bg-apple">
+                  <h2><strong>Old solutions:</strong></h2>
+                  <br />
+                  <div>
+                    <ul class="flexblock specs">
+                      <li class="text-intro">Google gears</li>
+                      <li class="text-intro">Application cache</li>
+                      <li class="text-intro">Apache Cordova / Phonegap</li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="column bg-white">
+                  <h2><strong>New solution:<Br>Service worker</strong></h2>
+                  <br />
+                  <div>
+                    <ul class="flexblock specs">
+                      <li class="text-intro">Built upon web workers</li>
+                      <li class="text-intro">Manages a scope (a domain folder)</li>
+                      <li class="text-intro">Works detached from any browser's tab or PWA process</li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+            
+            <!-- .end .bg-white shadow -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="">
+            <!-- .wrap = container (width: 90%) -->
+            <div class="wrap size-90 aligncenter">
+              <div class="grid vertical-align">
+                <div class="column">
+                    <h2><strong>What is a Web Worker?</strong></h2>
+                    <br />
+                    <div>
+                      <ul class="flexblock specs">
+                        <li class="text-intro">It's a JS file running in its own thread</li>
+                        <li class="text-intro">Service workers also have their own process</li>
+                        <li class="text-intro">Can import other files</li>
+                        <li class="text-intro">has no access to a user interface</li>
+                        <li class="text-intro">no DOM, no innerHTML, no window object</li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <h2><strong>Service workers also manage a scope (a domain folder)</strong></h2>
+                    <br />
+                    <div>
+                      <ul class="flexblock specs">
+                        <li class="text-intro">Scope = Protocol + Host + Port</li>
+                        <li class="text-intro">For example: https://mydomain.com is 1 scope</li>
+                        <li class="text-intro">https://mydomain.com/myapp is a different scope</li>
+                        <li class="text-intro">https://mydomain.com:8050 is a different scope</li>
+                        <li class="text-intro">https://subdomain.mydomain.com is a different scope</li>
+                      </ul>
+                    </div>
+                </div>                
+              </div>
+            </div>
+              <!-- .end .bg-white shadow -->
+            </div>
+            <!-- .end .wrap -->
+          </section>
+
+
+  <section class="">
+      <!-- .wrap = container (width: 90%) -->
+      <div class="wrap size-50 aligncenter">
+        <div class="bg-white shadow">
+          <h2>Service worker acts like a proxy</h2>
+          <img src="./static/images/scope.PNG" alt="Service worker acts like a proxy">
+          <br>
+          <p class="text-intro">It can see all the requests made by the web page or PWA</p>
+        </div>
+        <!-- .end .bg-white shadow -->
+      </div>
+      <!-- .end .wrap -->
+    </section>
+    
+
+  <section class="bg-apple">
+      <!-- .wrap = container (width: 90%) -->
+      <div class="wrap size-90 aligncenter">
+        <div class="grid vertical-align">
+          <div class="column">
+              <div>
+                <h2>Offline Web</h2>
+                <p class="text-intro">A service worker can make a website / web app available offline.</p>
+                <ul class="flexblock reasons">
+                    <li class="text-intro"><p>Goto <a href="https://code.nasa.gov/">https://code.nasa.gov/</a></p></li>
+                    <li class="text-intro"></li>
+                    <li class="text-intro"></li>
+                    <li class="text-intro"></li>
+                    <li class="text-intro"></li>
+                  </ul>
+                
+              </div>
+          </div>
+          <div class="column">            
+              <h2>Abilities</h2>
+              <br />
+            <ul class="flexblock specs">
+                <li class="text-intro">Service workers can see all the network requests that pages in the scope are requesting</li>
+                <li class="text-intro">Then it can respond to those requests, by taking responses from a cache (even if offline) or fetching them or creating responses on the fly (like a web server)</li>
+                <li class="text-intro">It can also receive messages from the server when web app is closed (via push notification messages)</li>
+                <li class="text-intro">There is no permission required to register service workers</li>
+              </ul>
+          </div>                
+        </div>
+      </div>
+        <!-- .end .bg-white shadow -->
+      </div>
+      <!-- .end .wrap -->
+    </section>
+
+
+
+
+
+
+
+
+
+
 
         <section>
           <!-- .wrap = container (width: 90%) -->
@@ -268,7 +461,7 @@
             <li>
               http://www.ntu.edu.sg/home/ehchua/programming/webprogramming/http_basics.html
             </li>
-            <li></li>
+            <li>Vanilla JavaScript: service workers - https://www.lynda.com/JavaScript-tutorials/Abilities/724809/804528-4.html?autoplay=true</li>
           </ol>
 
           <!-- .end .wrap -->
