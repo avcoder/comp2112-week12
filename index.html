@@ -291,19 +291,19 @@ navigator.geolocation.getCurrentPosition(function(position) {
               <div class="bg-white shadow">
 <pre><code><h5>
 function initMap() {
-  // The location of Uluru
+  // check my c:/users/me/node/goomap/ for code
   navigator.geolocation.watchPosition(function(position) {
     here = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
     console.log(here);
-    // The map, centered at Uluru
+    
     var map = new google.maps.Map(document.getElementById("map"), {
       zoom: 20,
       center: here
     });
-    // The marker, positioned at Uluru
+    
     var marker = new google.maps.Marker({ position: here, map: map });
   });
 }
@@ -547,7 +547,27 @@ self.addEventListener('activate', (event) => {
             <!-- .end .wrap -->
           </section>         
 
+          <section class="bg-primary">
+              <!-- .wrap = container (width: 90%) -->
+              <div class="wrap size-50 aligncenter">
+                <h3>Listening for fetch events</h3>
+                <div class="bg-white shadow">
+<pre><code><h5>
+try {
+  importScripts("events.js");
+} catch (e) {
+  console.log(e);
+}
 
+self.addEventListener("fetch", event => {
+  console.log(`Trying to GET somewhere? ${event.request.url}`);
+});  
+</h5></code></pre>
+                </div>
+                <!-- .end .bg-white shadow -->
+              </div>
+              <!-- .end .wrap -->
+            </section>          
 
 
         <section>
