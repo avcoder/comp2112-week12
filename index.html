@@ -569,7 +569,57 @@ self.addEventListener("fetch", event => {
               <!-- .end .wrap -->
             </section>          
 
+            <section class="bg-primary">
+                <!-- .wrap = container (width: 90%) -->
+                <div class="wrap size-50 aligncenter">
+                  <h3>Responding with text</h3>
+                  <div class="bg-white shadow">
+<pre><code><h5>
+self.addEventListener("fetch", event => {
+  const response = new Response(
+    `Trying to GET somewhere? ${event.request.url}`
+  );
+  event.respondWith(response);
+});    
+</h5></code></pre>
+                  </div>
+                  <!-- .end .bg-white shadow -->
+                </div>
+                <!-- .end .wrap -->
+              </section>         
 
+              <section class="bg-primary">
+                  <!-- .wrap = container (width: 90%) -->
+                  <div class="wrap size-50 aligncenter">
+                      <h2>Responding with HTML</h2>
+                    <div class="bg-white shadow">
+                      
+<pre><code><h5>
+self.addEventListener("fetch", event => {
+  const body = `
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+        ...
+        &lt;body>
+        &lt;h1>Hello world&lt;/h1>
+        &lt;/body>
+    &lt;/html>
+    `;
+  const response = new Response(body, {
+    status: 200,
+    statusText: "OK",
+    headers: {
+      "Content-type": "text/html"
+    }
+  });
+  event.respondWith(response);
+});  
+</h5></code></pre>
+                    </div>
+                    <!-- .end .bg-white shadow -->
+                  </div>
+                  <!-- .end .wrap -->
+                </section>    
         <section>
           <!-- .wrap = container (width: 90%) -->
           <div class=" wrap ">
