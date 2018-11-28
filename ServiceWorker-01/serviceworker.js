@@ -1,10 +1,6 @@
 console.log('We are a service worker');
 
-// listen to events via self
-self.addEventListener('install', (event) => {
-  console.log('Install event just happened');
-});
+importScripts('events.js');
 
-self.addEventListener('activate', (event) => {
-  console.log('Activate event just happened');
-});
+// above importScripts method is synchronouc
+console.log('if you see this, then events.js above was loaded since importScripts is synchronous');
